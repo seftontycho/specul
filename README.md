@@ -13,6 +13,6 @@ async fn main() {
   
   cnn.authenticate("password").await?;
   let responses = cnn.execute_command("Hello World!").await?;
-  println!("Response: {}", response);
+  println!("Responses: {}", responses);
 }
 ```
