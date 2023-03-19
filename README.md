@@ -10,5 +10,9 @@ use tokio::net::TcpStream;
 async fn main() {
   let tcp = TcpStream::connect(0.0.0.0:8080).await?;
   let cnn = Connection::<TcpStream>::builder().build(io);
+  
+  cnn.authenticate("password").await?;
+  let responses = cnn.execute_command("Hello World!").await?;
+  println!("Response: {}", response);
 }
 ```
