@@ -1,6 +1,6 @@
 [package]
 name = "specul"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 authors = ["Sefton de Pledge"]
 description = "A simple, asynchronous RCON client for Rust."
