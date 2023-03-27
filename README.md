@@ -3,7 +3,7 @@ See https://developer.valvesoftware.com/wiki/Source_RCON_Protocol.
 
 # Examples
 ```rust
-use specul::Connection;
+use specul::{Connection, ConnectionBuilder};
 use tokio::net::TcpStream;
 
 #[tokio::main]
@@ -15,4 +15,5 @@ async fn main() {
   let responses = cnn.execute_command("Hello World!").await?;
   println!("Responses: {}", responses);
 }
+
 ```
