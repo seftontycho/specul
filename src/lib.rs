@@ -6,9 +6,8 @@
 //!
 //! #[tokio::main]
 //! async fn main() -> Result<(), Box<dyn std::error::Error>> {
-//!    let mut connection = ConnectionBuilder::default()
-//!       .password("password")
-//!      .build(TcpStream::connect("0.0.0.0:27015").await?);
+//!     let tcp = TcpStream::connect(0.0.0.0:8080).await?;
+//!     let mut connection = Connection::default().io(tcp).build()?;
 //!
 //!     connection.authenticate().await?;
 //!
@@ -18,6 +17,7 @@
 //!
 //!   Ok(())
 //! }
+//! ```
 
 use std::io;
 
@@ -50,10 +50,13 @@ pub type Result<T> = std::result::Result<T, Error>;
 #[derive(Debug, Builder)]
 pub struct Connection<T> {
     io: T,
+    #[builder(default = "0")]
     default_packet_id: i32,
-    #[builder(default = "0", setter(skip))]
+    #[builder(default = "0")]
     current_packet_id: i32,
+    #[builder(default = "4096")]
     max_payload_size: usize,
+    #[builder(default = "false")]
     multiple_responses: bool,
 }
 
