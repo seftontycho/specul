@@ -1,4 +1,4 @@
-# Specul is a simple, asynchronos rcon client for rust.
+# Specul is a simple, asynchronous rcon client for rust.
 See https://developer.valvesoftware.com/wiki/Source_RCON_Protocol.
 Tested to work with Factorio.
 
